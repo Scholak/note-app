@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	title: 'Dashboard',
 }
 
-const page = async () => {
+const Dashboard = async () => {
   const session = await getServerSession(authOptions)
 
   return (
@@ -18,4 +18,4 @@ const page = async () => {
 	)
 }
 
-export default page
+export default Dashboard

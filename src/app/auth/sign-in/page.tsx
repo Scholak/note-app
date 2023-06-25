@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 import Link from 'next/link'
 
-const page = () => {
+const SignIn = () => {
   const router = useRouter()
 
   const [error, setError] = useState<string | undefined>('')
@@ -70,4 +70,4 @@ const page = () => {
 	)
 }
 
-export default page
+export default SignIn

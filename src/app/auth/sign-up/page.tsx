@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
-const page = () => {
+const SignUp = () => {
   const router = useRouter()
 
   const [error, setError] = useState<string>('')
@@ -92,4 +92,4 @@ const page = () => {
 	)
 }
 
-export default page
+export default SignUp

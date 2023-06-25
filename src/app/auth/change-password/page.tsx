@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const page = () => {
+const ChangePassword = () => {
 	const router = useRouter()
 	const searchParams = useSearchParams()
 
@@ -49,4 +49,4 @@ const page = () => {
 	)
 }
 
-export default page
+export default ChangePassword

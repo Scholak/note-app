@@ -5,8 +5,8 @@ export const metadata: Metadata = {
 	title: 'Change Password',
 }
 
-const layout = ({ children }: { children: ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
 	return <>{children}</>
 }
 
-export default layout
+export default Layout

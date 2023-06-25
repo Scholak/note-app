@@ -4,7 +4,7 @@ import React, { FormEvent, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const page = () => {
+const ForgetPassword = () => {
   const [email, setEmail] = useState<string>('')
   
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -46,4 +46,4 @@ const page = () => {
 	)
 }
 
-export default page
+export default ForgetPassword
