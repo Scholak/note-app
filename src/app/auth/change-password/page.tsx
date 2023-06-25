@@ -14,7 +14,7 @@ const ChangePassword = () => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
-		const res = await axios.put('http://localhost:3000/api/auth/update-password',{ password, token: searchParams.get('token') })
+		const res = await axios.put('/api/auth/update-password',{ password, token: searchParams.get('token') })
 
 		if(res.status === 200) {
 			toast.success(res.data.message)

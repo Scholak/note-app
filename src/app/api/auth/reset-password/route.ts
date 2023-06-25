@@ -10,7 +10,7 @@ export async function POST(req: Request) {
 		from: '"Next App" <nextjs@gmail.com>', // sender address
 		to: email, // list of receivers
 		subject: 'Password Reset', // Subject line
-		html: `<a href='http://localhost:3000/auth/change-password?token=${token}'>reset your password</a>`, // html body
+		html: `<a href='${process.env.APP_URL}/auth/change-password?token=${token}'>reset your password</a>`, // html body
 	})
 
   console.log(result)
