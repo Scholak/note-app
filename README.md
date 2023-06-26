@@ -7,5 +7,6 @@
 - dashboard
 
 ## Todo
+- custom error messages for authentication operation fields
 - error handling for authentication operations
 - creation of list and todo features

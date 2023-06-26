@@ -4,17 +4,18 @@ import React, { FormEvent, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { resetPasswordSchema } from '@/validation/auth'
 
 const ChangePassword = () => {
 	const router = useRouter()
 	const searchParams = useSearchParams()
 
-	const [password, setPassword] = useState<string>('')
+	const { register, handleSubmit, formState: { errors } } = useForm<ResetPasswordSchema>({resolver: zodResolver(resetPasswordSchema)})
 
-	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-
-		const res = await axios.put('/api/auth/update-password',{ password, token: searchParams.get('token') })
+	const onSubmit = async (data: ResetPasswordSchema) => {
+		const res = await axios.put('/api/auth/update-password',{ password: data.password, token: searchParams.get('token') })
 
 		if(res.status === 200) {
 			toast.success(res.data.message)
@@ -26,15 +27,24 @@ const ChangePassword = () => {
 	return (
 		<div className='m-12'>
 			<h1 className='text-4xl font-bold'>Change Password</h1>
-			<form onSubmit={handleSubmit} className='m-10 w-full md:w-1/2'>
+			<form onSubmit={handleSubmit(onSubmit)} className='m-10 w-full md:w-1/2'>
 				<div className='my-3'>
 					<label htmlFor='password' className='block'>Enter Your New Password</label>
 					<input
 						type='password'
 						className='w-full border border-slate-600 py-1 px-2 rounded-sm text-black'
-						onChange={e => setPassword(e.target.value)}
-						required
+						{...register('password')}
 					/>
+					{errors.password && <span className='text-red-600'>{errors.password.message}</span>}
+				</div>
+				<div className='my-3'>
+					<label htmlFor='password' className='block'>Confirm Your Password</label>
+					<input
+						type='password'
+						className='w-full border border-slate-600 py-1 px-2 rounded-sm text-black'
+						{...register('passwordConfirmation')}
+					/>
+					{errors.passwordConfirmation && <span className='text-red-600'>{errors.passwordConfirmation.message}</span>}
 				</div>
 				<div className='mt-5'>
 					<button
