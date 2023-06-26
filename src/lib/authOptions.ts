@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions = {
 			async authorize(credentials, req) {
 				try {
 					const res = await axios.post(
-						'http://127.0.0.1:3000/api/auth/login',
+						'/api/auth/login',
 						credentials
 					)
 
