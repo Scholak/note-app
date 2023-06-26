@@ -12,21 +12,27 @@ const ChangePassword = () => {
 	const router = useRouter()
 	const searchParams = useSearchParams()
 
+	const [error, setError] = useState<string>('')
+
 	const { register, handleSubmit, formState: { errors } } = useForm<ResetPasswordSchema>({resolver: zodResolver(resetPasswordSchema)})
 
 	const onSubmit = async (data: ResetPasswordSchema) => {
-		const res = await axios.put('/api/auth/update-password',{ password: data.password, token: searchParams.get('token') })
+		try {
+			const res = await axios.put('/api/auth/update-password',{ password: data.password, token: searchParams.get('token') })
 
-		if(res.status === 200) {
-			toast.success(res.data.message)
-			router.push('/auth/sign-in')
+			if(res.status === 200) {
+				toast.success(res.data.message)
+				router.push('/auth/sign-in')
+			}
+		} catch (error: any) {
+			setError(error.response.data.message)
 		}
-
   }
 
 	return (
 		<div className='m-12'>
 			<h1 className='text-4xl font-bold'>Change Password</h1>
+			{error && <span className='text-red-600'>{error}</span>}
 			<form onSubmit={handleSubmit(onSubmit)} className='m-10 w-full md:w-1/2'>
 				<div className='my-3'>
 					<label htmlFor='password' className='block'>Enter Your New Password</label>
