@@ -1,29 +1,27 @@
 'use client'
 
-import { SignInResponse, signIn } from 'next-auth/react'
-import React, { FormEvent, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { toast } from 'react-toastify'
+import { signIn } from 'next-auth/react'
+import React, { FormEvent, useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
 const SignIn = () => {
-  const router = useRouter()
+	const searchParams = useSearchParams()
 
-  const [error, setError] = useState<string | undefined>('')
+  const [error, setError] = useState<string | null>('')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const res: SignInResponse | undefined = await signIn('credentials', {email, password, redirect: false})
-
-    if(!res?.error) {
-			toast.success('Signed in successfully!')
-			router.push('/dashboard')
-    } else {
-      setError(res?.error)
-    }
+    signIn('credentials', {email, password})
   }
+
+	useEffect(() => {
+		if(searchParams.get('error')) {
+			setError(searchParams.get('error'))
+		}
+	}, [])
   
   return (
 		<div className='m-12'>

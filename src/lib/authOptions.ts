@@ -39,6 +39,9 @@ export const authOptions: NextAuthOptions = {
 			session.user = token as any
 			return session
 		},
+		async redirect() {
+			return '/dashboard'
+		}
 	},
 	pages: {
 		signIn: '/auth/sign-in',
