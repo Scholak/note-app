@@ -7,5 +7,6 @@
 - dashboard
 
 ## Todo
-- todo crud
+- relation checks on delete
+- add todo popup
 - ui improvements

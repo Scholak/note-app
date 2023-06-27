@@ -23,9 +23,21 @@ model List {
   id          Int     @id @default(autoincrement())
   name        String
   description String?
+  todos       Todo[]
 
   User   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
 
   @@index(userId)
+}
+
+model Todo {
+  id        Int     @id @default(autoincrement())
+  name      String
+  completed Boolean @default(false)
+
+  List   List @relation(fields: [listId], references: [id], onDelete: Cascade)
+  listId Int
+
+  @@index(listId)
 }
