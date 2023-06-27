@@ -7,5 +7,5 @@
 - dashboard
 
 ## Todo
-- list crud
 - todo crud
+- ui improvements

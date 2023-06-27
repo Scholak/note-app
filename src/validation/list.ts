@@ -13,7 +13,6 @@ const messages = {
 export const createListSchema: ZodType<CreateListSchema> = z.object({
 	name: z.string().nonempty(messages.name.required).min(2, messages.name.min),
 	description: z.string(),
-	userId: z.number().nonnegative(messages.userId.nonnegative),
 })
 
 export const updateListSchema: ZodType<UpdateListSchema> = z.object({
