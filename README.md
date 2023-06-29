@@ -4,7 +4,8 @@
 - sign up
 - sign in
 - reset password
-- dashboard
+- list crud
+- todo crud
 
 ## Todo
 - responsive design
