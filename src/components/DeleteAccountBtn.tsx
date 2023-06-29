@@ -1,7 +1,7 @@
 'use client'
 
 import axios from 'axios'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { toast } from 'react-toastify'
@@ -16,8 +16,9 @@ const DeleteAccountBtn = () => {
       const res = await axios.delete(`/api/auth/delete-account/${session?.user.id}`)
       
       if(res.status === 204) {
-        toast.success('your account deleted successfully')
+        signOut()
         router.push('/auth/sign-up')
+        toast.success('your account deleted successfully')
       } else {
         toast.error('an error occured')
       }
