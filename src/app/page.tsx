@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className='h-screen flex items-center justify-center'>
-      <h1 className='text-4xl font-bold'>Complete Authentication Using Next.js</h1>
+    <div className='h-screen flex items-center justify-center -translate-y-12'>
+      <h1 className='text-4xl font-bold'>Note App Using Next.js</h1>
     </div>
   )
 }

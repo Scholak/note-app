@@ -22,7 +22,7 @@ export default function RootLayout({
 				<Providers>
 					<Navbar />
 					<ToastContainer />
-					<main className='container mx-auto my-12'>{children}</main>
+					<main className='container mx-auto md:my-12'>{children}</main>
 				</Providers>
 			</body>
 		</html>
