@@ -7,6 +7,6 @@
 - dashboard
 
 ## Todo
-- relation checks on delete
-- add todo popup
-- ui improvements
+- delete account
+- auth middleware
+- responsive design
