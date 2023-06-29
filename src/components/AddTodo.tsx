@@ -28,13 +28,14 @@ const AddTodo = ({ listId }: Props) => {
 		formEl.current?.classList.add('pointer-events-none')
 	}
 
-  const { register, handleSubmit, formState : { errors } } = useForm<CreateTodoSchema>({resolver: zodResolver(createTodoSchema)})
+  const { register, handleSubmit, formState : { errors }, reset } = useForm<CreateTodoSchema>({resolver: zodResolver(createTodoSchema)})
   
   const onSubmit = async (data: CreateTodoSchema) => {
     try {
       const res = await axios.post('/api/todo', { name: data.name, listId })
 
       if(res.status === 200) {
+				reset()
 				formEl.current?.classList.add('opacity-0')
 				formEl.current?.classList.add('pointer-events-none')
         toast.success('todo created successfully')
