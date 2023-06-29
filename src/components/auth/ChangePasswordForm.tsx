@@ -24,14 +24,19 @@ const ChangePassword = () => {
 
 	const onSubmit = async (data: ResetPasswordSchema) => {
 		try {
-			const res = await axios.put('/api/auth/update-password', {
-				password: data.password,
-				token: searchParams.get('token'),
-			})
+			if (searchParams.get('token')) {
+				toast.warning('reset password token is missing')
+				router.push('/auth/forget-password')
+			} else {
+				const res = await axios.put('/api/auth/update-password', {
+					password: data.password,
+					token: searchParams.get('token'),
+				})
 
-			if (res.status === 200) {
-				toast.success(res.data.message)
-				router.push('/auth/sign-in')
+				if (res.status === 200) {
+					toast.success(res.data.message)
+					router.push('/auth/sign-in')
+				}
 			}
 		} catch (error: any) {
 			setError(error.response.data.message)
