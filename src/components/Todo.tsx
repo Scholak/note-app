@@ -40,7 +40,7 @@ const Todo = ({ todo }: Props) => {
   }
 
   return (
-		<li className='relative flex justify-between py-6 px-12 rounded-md shadow-md bg-slate-50 cursor-pointer w-full md:w-1/2'>
+		<li className='relative flex justify-between py-4 px-8 rounded-md shadow-md bg-slate-50 cursor-pointer w-full md:w-1/2 md:py-6 md:px-12'>
 			<div
 				onClick={() => handleToggle(todo.id, !todo.completed)}
 				className='flex-1 flex items-center gap-2'

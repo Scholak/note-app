@@ -56,7 +56,7 @@ const AddTodo = ({ listId }: Props) => {
 			</button>
 			<div
 				ref={formEl}
-				className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100 p-20 rounded-md shadow-xl transition duration-300 opacity-0 pointer-events-none'
+				className='w-full absolute top-1/2 left-0 -translate-y-1/2 p-12 bg-slate-100 rounded-md shadow-xl transition duration-300 opacity-0 pointer-events-none md:w-auto md:p-20 md:left-1/2 md:-translate-x-1/2'
 			>
 				<h3 className='mb-6 font-semibold text-2xl'>Create New Todo</h3>
 				<form onSubmit={handleSubmit(onSubmit)}>
@@ -73,14 +73,19 @@ const AddTodo = ({ listId }: Props) => {
 							<span className='text-red-600'>{errors.name.message}</span>
 						)}
 					</div>
-					<div className='flex items-center justify-between'>
+					<div className='flex flex-col gap-2 items-center justify-between md:flex-row'>
 						<button
 							type='submit'
 							className='py-2 px-4 rounded shadow bg-green-600 text-white font-medium'
 						>
 							create new todo
 						</button>
-						<p onClick={handleCloseForm} className='text-red-600 underline underline-offset-2'>cancel</p>
+						<p
+							onClick={handleCloseForm}
+							className='text-red-600 underline underline-offset-2'
+						>
+							cancel
+						</p>
 					</div>
 				</form>
 			</div>

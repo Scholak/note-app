@@ -26,8 +26,6 @@ export async function generateMetadata({ params }: Params) {
 			title: 'List Not Found'
 		}
 	}
-
-	
 }
 
 const page = async ({params}: Params) => {
@@ -45,7 +43,7 @@ const page = async ({params}: Params) => {
   const todos = await getTodos(list?.id)
 
   return (
-		<div>
+		<div className='px-4 md:px-0'>
 			<h3 className='mb-8 text-4xl font-bold capitalize'>{list.name}</h3>
 			{list?.description ? (
 				<p>{list.description}</p>

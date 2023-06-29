@@ -19,10 +19,10 @@ const SignInButton = () => {
   }
 
   return (
-		<div>
+		<div className='flex flex-col gap-4 md:flex-row'>
 			<Link
 				href='/auth/sign-up'
-				className='py-2 px-4 rounded shadow bg-indigo-600 text-white mr-4'
+				className='py-2 px-4 rounded shadow bg-indigo-600 text-white'
 			>
 				Sign Up
 			</Link>

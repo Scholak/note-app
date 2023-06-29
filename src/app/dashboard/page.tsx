@@ -18,7 +18,7 @@ const Dashboard = async () => {
   const lists = await getLists()
 
   return (
-		<div>
+		<div className='px-4 md:px-0'>
 			<p className='mb-4 text-4xl font-bold'>Welcome {session?.user?.name}</p>
 			<DeleteAccountBtn />
 			<div className='flex items-center gap-4 mb-4'>
@@ -30,7 +30,7 @@ const Dashboard = async () => {
 					<FaPlus className='text-lg' />
 				</Link>
 			</div>
-			<div className='grid grid-cols-4 gap-5'>
+			<div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4'>
 				{lists.map(list => (
 					<div key={list.id} className='flex flex-col items-start justify-between rounded-lg shadow-lg p-12 bg-slate-50'>
 						<Link href={`/dashboard/lists/${list.id}`}>
