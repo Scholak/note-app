@@ -7,6 +7,4 @@
 - dashboard
 
 ## Todo
-- delete account
-- auth middleware
 - responsive design

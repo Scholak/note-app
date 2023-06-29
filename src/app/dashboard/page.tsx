@@ -1,3 +1,4 @@
+import DeleteAccountBtn from '@/components/DeleteAccountBtn'
 import DeleteListBtn from '@/components/DeleteListBtn'
 import { authOptions } from '@/lib/authOptions'
 import { getLists } from '@/services/listService'
@@ -18,7 +19,8 @@ const Dashboard = async () => {
 
   return (
 		<div className='m-12'>
-			<p className='mb-8 text-4xl font-bold'>Welcome {session?.user?.name}</p>
+			<p className='mb-4 text-4xl font-bold'>Welcome {session?.user?.name}</p>
+			<DeleteAccountBtn />
 			<div className='flex items-center gap-4 mb-4'>
 				<h3 className='text-2xl font-semibold'>Your Lists</h3>
 				<Link
