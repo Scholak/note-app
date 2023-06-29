@@ -8,7 +8,7 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 const Navbar = () => {
 	const navEl = useRef<HTMLElement>(null)
 
-	const [toggle, setToggle] = useState<boolean>(false)
+	const [toggle, setToggle] = useState<boolean>(true)
 
 	const handleToggle = () => {
 		navEl.current?.classList.toggle('-translate-x-full')
