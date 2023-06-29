@@ -31,16 +31,29 @@ const page = async ({params}: Params) => {
   return (
 		<div className='container mx-auto mt-12'>
 			<h3 className='mb-8 text-4xl font-bold capitalize'>{list.name}</h3>
-      {list?.description ? <p>{list.description}</p> : <p className='text-slate-500'>No description</p>}
-      <DeleteListBtn id={list.id} />
-      <h4 className='my-4 text-2xl font-bold capitalize'>Todos of This List</h4>
-      <AddTodo listId={list.id} />
-      <ul className='flex flex-col items-start gap-2 '>
-      {todos.map(todo => (
-        <Todo key={todo.id} todo={todo} />
-      ))}
-      </ul>
-      <Link href='/dashboard' className='inline-block mt-3 text-sky-500 underline underline-offset-2'>return to lists</Link>
+			{list?.description ? (
+				<p>{list.description}</p>
+			) : (
+				<p className='text-slate-500'>No description</p>
+			)}
+			<DeleteListBtn id={list.id} />
+			<div className='flex items-center gap-4'>
+				<h4 className='my-4 text-2xl font-bold capitalize'>
+					Todos of This List
+				</h4>
+				<AddTodo listId={list.id} />
+			</div>
+			<ul className='flex flex-col items-start gap-2 '>
+				{todos.map(todo => (
+					<Todo key={todo.id} todo={todo} />
+				))}
+			</ul>
+			<Link
+				href='/dashboard'
+				className='inline-block mt-3 text-sky-500 underline underline-offset-2'
+			>
+				return to lists
+			</Link>
 		</div>
 	)
 }
