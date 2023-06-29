@@ -46,7 +46,7 @@ const ChangePassword = () => {
   return (
 		<>
 			{error && <span className='text-red-600'>{error}</span>}
-			<form onSubmit={handleSubmit(onSubmit)} className='m-10 w-full md:w-1/2'>
+			<form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-1/2'>
 				<div className='my-3'>
 					<label htmlFor='password' className='block'>
 						Enter Your New Password
