@@ -9,9 +9,25 @@ import React from 'react'
 export const revalidate = 0
 
 interface Params {
-  params: {
-    id: number
-  }
+	params: {
+		id: number
+	}
+}
+
+export async function generateMetadata({ params }: Params) {
+	const list = await getListById(params.id)
+
+	if(list) {
+		return {
+			title: list.name
+		}
+	} else {
+		return {
+			title: 'List Not Found'
+		}
+	}
+
+	
 }
 
 const page = async ({params}: Params) => {
@@ -29,7 +45,7 @@ const page = async ({params}: Params) => {
   const todos = await getTodos(list?.id)
 
   return (
-		<div className='container mx-auto mt-12'>
+		<div>
 			<h3 className='mb-8 text-4xl font-bold capitalize'>{list.name}</h3>
 			{list?.description ? (
 				<p>{list.description}</p>

@@ -18,7 +18,7 @@ const Dashboard = async () => {
   const lists = await getLists()
 
   return (
-		<div className='m-12'>
+		<div>
 			<p className='mb-4 text-4xl font-bold'>Welcome {session?.user?.name}</p>
 			<DeleteAccountBtn />
 			<div className='flex items-center gap-4 mb-4'>
