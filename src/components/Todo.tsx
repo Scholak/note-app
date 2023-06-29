@@ -43,7 +43,7 @@ const Todo = ({ todo }: Props) => {
 		<li className='relative flex justify-between py-6 px-12 rounded-md shadow-md bg-slate-50 cursor-pointer w-full md:w-1/2'>
 			<div
 				onClick={() => handleToggle(todo.id, !todo.completed)}
-				className='flex items-center gap-2'
+				className='flex-1 flex items-center gap-2'
 			>
 				<span
 					className={`w-2 h-2 rounded-full ${
