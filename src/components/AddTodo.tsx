@@ -46,7 +46,7 @@ const AddTodo = ({ listId }: Props) => {
   }
 
   return (
-		<div className='my-10'>
+		<div className='my-10 z-10'>
 			<button
 				type='submit'
 				onClick={handleToggle}
@@ -56,11 +56,11 @@ const AddTodo = ({ listId }: Props) => {
 			</button>
 			<div
 				ref={formEl}
-				className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-100 p-12 rounded-md shadow-xl transition duration-300 opacity-0 pointer-events-none'
+				className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100 p-20 rounded-md shadow-xl transition duration-300 opacity-0 pointer-events-none'
 			>
-				<h3 className='mb-4 font-medium text-lg'>Create New Todo</h3>
+				<h3 className='mb-6 font-semibold text-2xl'>Create New Todo</h3>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<div className='mb-4'>
+					<div className='mb-6'>
 						<label htmlFor='name' className='mb-1'>
 							Name
 						</label>

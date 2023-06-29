@@ -8,4 +8,6 @@
 - todo crud
 
 ## Todo
+- loading states
+- error handling
 - responsive design
