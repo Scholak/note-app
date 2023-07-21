@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 	title: 'Dashboard',
 }
 
+export const revalidate = 0
+
 const Dashboard = async () => {
   const session = await getServerSession(authOptions)
 
