@@ -31,7 +31,7 @@ const SignUpForm = () => {
 				setMessage('something went wrong')
 			}
 		} catch (error: any) {
-			setResponseError(error.response.data.message)
+			setResponseError(error.response?.data.message)
 		}
 	}
 
@@ -53,6 +53,7 @@ const SignUpForm = () => {
 						Name
 					</label>
 					<input
+						id='name'
 						type='text'
 						className='w-full border border-slate-600 py-1 px-2 rounded text-black'
 						{...register('name')}
@@ -66,6 +67,7 @@ const SignUpForm = () => {
 						Email
 					</label>
 					<input
+						id='email'
 						type='email'
 						className='w-full border border-slate-600 py-1 px-2 rounded text-black'
 						{...register('email')}
@@ -79,6 +81,7 @@ const SignUpForm = () => {
 						Password
 					</label>
 					<input
+						id='password'
 						type='password'
 						className='w-full border border-slate-600 py-1 px-2 rounded text-black'
 						{...register('password')}
@@ -88,10 +91,11 @@ const SignUpForm = () => {
 					)}
 				</div>
 				<div className='my-3'>
-					<label htmlFor='password' className='block mb-1 w-full'>
+					<label htmlFor='passwordConfirmation' className='block mb-1 w-full'>
 						Password Confirmation
 					</label>
 					<input
+						id='passwordConfirmation'
 						type='password'
 						className='w-full border border-slate-600 py-1 px-2 rounded text-black'
 						{...register('passwordConfirmation')}

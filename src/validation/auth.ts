@@ -21,7 +21,7 @@ const messages = {
 }
 
 export const registerSchema: ZodType<RegisterSchema> = z.object({
-  name: z.string().nonempty(messages.name.required).min(2, messages.name.max).max(15, messages.name.max),
+  name: z.string().nonempty(messages.name.required).min(2, messages.name.min).max(15, messages.name.max),
   email: z.string().nonempty(messages.email.required).email(messages.email.email),
   password: z.string().nonempty(messages.password.required).min(6, messages.password.min),
   passwordConfirmation: z.string().nonempty(messages.passwordConfirmation.required)
