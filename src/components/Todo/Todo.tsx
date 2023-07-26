@@ -55,6 +55,7 @@ const Todo = ({ todo }: Props) => {
 			<FaTimes
 				className='ml-4 text-lg text-red-600'
 				onClick={() => handleDelete(todo.id)}
+        data-testid='delete-todo'
 			/>
 		</li>
 	)

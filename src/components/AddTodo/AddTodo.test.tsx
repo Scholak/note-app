@@ -7,18 +7,7 @@ import AddTodo from './AddTodo'
 import { ToastContainer, toast } from 'react-toastify'
 
 describe('<AddTodo /> component tests', () => {
-  beforeAll(() => {
-    server.listen()
-
-    vi.mock('next/navigation', () => require('next-router-mock'))
-    
-    vi.mock('react-toastify', () => ({
-			toast: {
-				success: vi.fn(),
-				error: vi.fn(),
-			},
-		}))
-  })
+  beforeAll(() => server.listen())
 
 	afterEach(() => server.resetHandlers())
 
