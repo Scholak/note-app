@@ -3,7 +3,7 @@ import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe } from 'vitest'
 import Navbar from './Navbar'
-import SignInButton from '../SignInButton'
+import SignInButton from '../SignInButton/SignInButton'
 
 describe('<Navbar /> component tests', () => {
   const MockSignInButton = () => <button>sign in</button>

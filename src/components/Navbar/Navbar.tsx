@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
-import SignInButton from '../SignInButton'
+import SignInButton from '../SignInButton/SignInButton'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 interface Props {
