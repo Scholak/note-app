@@ -4,8 +4,7 @@ import matchers from '@testing-library/jest-dom/matchers'
 
 expect.extend(matchers)
 
-afterEach(() => {
-	cleanup()
+beforeAll(() => {
 	vi.mock('next/navigation', () => require('next-router-mock'))
 
 	vi.mock('react-toastify', () => ({
@@ -14,4 +13,23 @@ afterEach(() => {
 			error: vi.fn(),
 		},
 	}))
+
+	vi.mock('next-auth/react', () => ({
+		useSession: vi.fn(() => {
+			return {
+				data: {
+					user: {
+						id: 1,
+						name: 'test user',
+						email: 'test.user@gmail.com',
+					},
+				},
+				status: 'authenticated'
+			}
+		})
+	}))
+})
+
+afterEach(() => {
+	cleanup()
 })

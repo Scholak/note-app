@@ -50,6 +50,7 @@ const CreateList = () => {
 					</label>
 					<input
 						type='text'
+						id='name'
 						{...register('name')}
 						className='w-full rounded py-1 px-2 border border-slate-500'
 					/>
@@ -63,6 +64,7 @@ const CreateList = () => {
 					</label>
 					<textarea
 						cols={30}
+						id='description'
 						{...register('description')}
 						className='w-full rounded py-1 px-2 border border-slate-500'
 					></textarea>

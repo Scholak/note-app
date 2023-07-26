@@ -1,4 +1,4 @@
-import CreateList from '@/components/CreateList'
+import { CreateList } from '@/components/'
 import React from 'react'
 
 export const metadata = {
