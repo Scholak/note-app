@@ -32,6 +32,7 @@ beforeAll(() => {
 	}))
 
 	vi.mock('next-auth/react', () => ({
+		signIn: vi.fn(),
 		useSession: vi.fn(() => {
 			return {
 				data: {
