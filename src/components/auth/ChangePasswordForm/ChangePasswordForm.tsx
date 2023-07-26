@@ -39,7 +39,7 @@ const ChangePassword = () => {
 				}
 			}
 		} catch (error: any) {
-			setError(error.response.data.message)
+			setError(error.response?.data.message)
 		}
 	}
 
@@ -52,6 +52,7 @@ const ChangePassword = () => {
 						Enter Your New Password
 					</label>
 					<input
+						id='password'
 						type='password'
 						className='w-full border border-slate-600 py-1 px-2 rounded-sm text-black'
 						{...register('password')}
@@ -61,10 +62,11 @@ const ChangePassword = () => {
 					)}
 				</div>
 				<div className='my-3'>
-					<label htmlFor='password' className='block'>
+					<label htmlFor='passwordConfirmation' className='block'>
 						Confirm Your Password
 					</label>
 					<input
+						id='passwordConfirmation'
 						type='password'
 						className='w-full border border-slate-600 py-1 px-2 rounded-sm text-black'
 						{...register('passwordConfirmation')}

@@ -5,11 +5,25 @@ import matchers from '@testing-library/jest-dom/matchers'
 expect.extend(matchers)
 
 beforeAll(() => {
-	vi.mock('next/navigation', () => require('next-router-mock'))
+	vi.mock('next/navigation', () => ({
+			useRouter: vi.fn(() => {
+				return {
+					push: vi.fn()
+				}
+			}),
+			useSearchParams: vi.fn(() => {
+				return {
+					get: vi.fn((param: string) => {
+						return 'test-token'
+					}),
+				}
+			}),
+		}))
 
 	vi.mock('react-toastify', () => ({
 		toast: {
 			success: vi.fn(),
+			warning: vi.fn(),
 			error: vi.fn(),
 		},
 	}))
