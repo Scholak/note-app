@@ -1,5 +1,5 @@
 import React from 'react'
-import ForgetPasswordForm from '@/components/auth/ForgetPasswordForm'
+import { ForgetPasswordForm } from '@/components/auth'
 
 export const metadata = {
 	title: 'Forget Password'

@@ -23,7 +23,7 @@ const ForgetPasswordForm = () => {
 				toast.success('Reset password link has been sent to your email!')
 			}
 		} catch (error: any) {
-			setError(error.response.data.message)
+			setError(error.response?.data.message)
 		}
 	}
 
@@ -32,10 +32,11 @@ const ForgetPasswordForm = () => {
 			{error && <span className='text-red-600'>{error}</span>}
 			<form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-1/2'>
 				<div className='my-3'>
-					<label htmlFor='Email' className='block mb-1'>
+					<label htmlFor='email' className='block mb-1'>
 						Email
 					</label>
 					<input
+						id='email'
 						type='email'
 						className='w-full border border-slate-600 py-1 px-2 rounded-sm text-black'
 						placeholder='enter your email address'
