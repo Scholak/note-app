@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { describe, vi } from 'vitest'
 import { server } from '../../mock/server'
 import AddTodo from './AddTodo'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 describe('<AddTodo /> component tests', () => {
   beforeAll(() => server.listen())
