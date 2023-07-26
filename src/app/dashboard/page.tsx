@@ -1,5 +1,5 @@
 import DeleteAccountBtn from '@/components/DeleteAccountBtn'
-import DeleteListBtn from '@/components/DeleteListBtn'
+import { DeleteListBtn } from '@/components'
 import { authOptions } from '@/lib/authOptions'
 import { getLists } from '@/services/listService'
 import { Metadata } from 'next'

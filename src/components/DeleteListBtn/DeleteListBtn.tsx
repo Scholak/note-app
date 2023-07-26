@@ -21,7 +21,7 @@ const DeleteListBtn = ({id}: Props) => {
         router.refresh()
       }
     } catch (error: any) {
-      toast.error(error.response.data.message)
+      toast.error(error.response?.data.message)
     }
   }
   

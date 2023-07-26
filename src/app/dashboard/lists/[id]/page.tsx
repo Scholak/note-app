@@ -1,5 +1,5 @@
 import { AddTodo } from '@/components'
-import DeleteListBtn from '@/components/DeleteListBtn'
+import { DeleteListBtn } from '@/components'
 import { Todo } from '@/components'
 import { getListById } from '@/services/listService'
 import { getTodos } from '@/services/todoService'
