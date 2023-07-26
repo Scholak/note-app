@@ -2,10 +2,14 @@
 
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
-import SignInButton from './SignInButton'
+import SignInButton from '../SignInButton'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
-const Navbar = () => {
+interface Props {
+	SignInBtn?: any
+}
+
+const Navbar = ({ SignInBtn = SignInButton }: Props) => {
 	const navEl = useRef<HTMLElement>(null)
 
 	const [toggle, setToggle] = useState<boolean>(true)
@@ -15,7 +19,7 @@ const Navbar = () => {
 		setToggle(!toggle)
 	}
 
-  return (
+	return (
 		<>
 			<nav
 				ref={navEl}
@@ -29,11 +33,12 @@ const Navbar = () => {
 						<Link href='/dashboard'>Dashboard</Link>
 					</li>
 				</ul>
-				<SignInButton />
+				<SignInBtn />
 			</nav>
 			<div
 				onClick={handleToggle}
 				className='absolute top-6 right-6 z-50 cursor-pointer text-3xl md:hidden'
+				data-testid='burger-icon'
 			>
 				{toggle ? <FaBars /> : <FaTimes />}
 			</div>

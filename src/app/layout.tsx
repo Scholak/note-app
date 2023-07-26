@@ -1,7 +1,7 @@
 import Providers from '@/components/Providers'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
+import { Navbar } from '@/components'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
