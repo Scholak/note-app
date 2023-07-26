@@ -3,17 +3,11 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { mockTodo } from '@/mock/data/todos'
 import Todo from './Todo'
-import { describe, vi } from 'vitest'
+import { describe } from 'vitest'
 import { server } from '@/mock/server'
 import { toast } from 'react-toastify'
 
 describe('<Todo /> component tests', () => {
-  beforeAll(() => server.listen())
-
-	afterEach(() => server.resetHandlers())
-
-	afterAll(() => server.close())
-
   it('should render todo without crashing', () => {
     render(<Todo todo={mockTodo} />)
 

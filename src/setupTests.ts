@@ -1,24 +1,27 @@
 import { expect, afterEach, vi } from 'vitest'
 import { cleanup } from '@testing-library/react'
 import matchers from '@testing-library/jest-dom/matchers'
+import { server } from './mock/server'
 
 expect.extend(matchers)
 
 beforeAll(() => {
+	server.listen()
+
 	vi.mock('next/navigation', () => ({
-			useRouter: vi.fn(() => {
-				return {
-					push: vi.fn()
-				}
-			}),
-			useSearchParams: vi.fn(() => {
-				return {
-					get: vi.fn((param: string) => {
-						return 'test-token'
-					}),
-				}
-			}),
-		}))
+		useRouter: vi.fn(() => {
+			return {
+				push: vi.fn(),
+			}
+		}),
+		useSearchParams: vi.fn(() => {
+			return {
+				get: vi.fn((param: string) => {
+					return 'test-token'
+				}),
+			}
+		}),
+	}))
 
 	vi.mock('react-toastify', () => ({
 		toast: {
@@ -38,12 +41,15 @@ beforeAll(() => {
 						email: 'test.user@gmail.com',
 					},
 				},
-				status: 'authenticated'
+				status: 'authenticated',
 			}
-		})
+		}),
 	}))
 })
 
 afterEach(() => {
 	cleanup()
+	server.resetHandlers()
 })
+
+afterAll(() => server.close())

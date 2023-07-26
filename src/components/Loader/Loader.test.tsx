@@ -5,7 +5,6 @@ import Loader from './Loader'
 import { describe } from 'vitest'
 
 describe('<Loader /> component tests', () => {
-
   it('should render <Loader /> component with default values', () => {
     render(<Loader />)
 

@@ -1,18 +1,11 @@
 import React from 'react'
 import { screen, render } from '@testing-library/react'
-import { server } from '@/mock/server'
 import { describe, vi } from 'vitest'
 import ChangePasswordForm from './ChangePasswordForm'
 import { toast } from 'react-toastify'
 import userEvent from '@testing-library/user-event'
 
 describe('<ChangePasswordForm /> component tests', () => {
-  beforeAll(() => server.listen())
-
-  afterEach(() => server.resetHandlers())
-
-  afterAll(() => server.close())
-
   it('should render <ChangePasswordForm /> component without crashing', () => {
     render(<ChangePasswordForm />)
 

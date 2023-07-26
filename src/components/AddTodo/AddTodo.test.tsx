@@ -2,17 +2,10 @@ import React from 'react'
 import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, vi } from 'vitest'
-import { server } from '../../mock/server'
 import AddTodo from './AddTodo'
 import { toast } from 'react-toastify'
 
 describe('<AddTodo /> component tests', () => {
-  beforeAll(() => server.listen())
-
-	afterEach(() => server.resetHandlers())
-
-	afterAll(() => server.close())
-  
   it('should render <AddTodo /> invisible initially', () => {
     render(<AddTodo listId={1} />)
 

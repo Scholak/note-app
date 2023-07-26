@@ -1,18 +1,11 @@
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { server } from '@/mock/server'
 import { describe } from 'vitest'
 import CreateList from './CreateList'
 import { toast } from 'react-toastify'
 
 describe('<CreateList /> component tests', () => {
-  beforeAll(() => server.listen())
-
-  afterEach(() => server.resetHandlers())
-
-  afterAll(() => server.close())
-
   it('should render <CreateList /> component without crashing', () => {
     render(<CreateList />)
   

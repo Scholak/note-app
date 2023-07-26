@@ -1,18 +1,11 @@
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { server } from '@/mock/server'
 import { describe } from 'vitest'
 import DeleteAccountBtn from './DeleteAccountBtn'
 import { toast } from 'react-toastify'
 
 describe('<DeleteAccountBtn /> component tests', () => {
-  beforeAll(() => server.listen())
-
-  afterEach(() => server.resetHandlers())
-
-  afterAll(() => server.close())
-
   it('should render <DeleteAccountBtn /> without crashing', () => {
     render(<DeleteAccountBtn />)
 
