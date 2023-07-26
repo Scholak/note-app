@@ -52,12 +52,14 @@ const AddTodo = ({ listId }: Props) => {
 				type='submit'
 				onClick={handleToggle}
 				className='w-8 h-8 flex items-center justify-center rounded-full bg-green-600 text-white'
+				data-testid='add-todo-btn'
 			>
 				<FaPlus className='text-lg' />
 			</button>
 			<div
 				ref={formEl}
 				className='w-full absolute top-1/2 left-0 -translate-y-1/2 p-12 bg-slate-100 rounded-md shadow-xl transition duration-300 opacity-0 pointer-events-none md:w-auto md:p-20 md:left-1/2 md:-translate-x-1/2'
+				data-testid='form-div'
 			>
 				<h3 className='mb-6 font-semibold text-2xl'>Create New Todo</h3>
 				<form onSubmit={handleSubmit(onSubmit)}>
@@ -67,6 +69,7 @@ const AddTodo = ({ listId }: Props) => {
 						</label>
 						<input
 							type='text'
+							id='name'
 							{...register('name')}
 							className='w-full rounded py-1 px-2 border border-slate-500'
 						/>
@@ -78,6 +81,7 @@ const AddTodo = ({ listId }: Props) => {
 						<button
 							type='submit'
 							className='py-2 px-4 rounded shadow bg-green-600 text-white font-medium'
+							data-testid='create-todo-btn'
 						>
 							create new todo
 						</button>

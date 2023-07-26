@@ -1,4 +1,4 @@
-import AddTodo from '@/components/AddTodo'
+import { AddTodo } from '@/components'
 import DeleteListBtn from '@/components/DeleteListBtn'
 import Todo from '@/components/Todo'
 import { getListById } from '@/services/listService'
