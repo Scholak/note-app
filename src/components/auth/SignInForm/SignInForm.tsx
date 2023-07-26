@@ -28,7 +28,7 @@ const SignInForm = () => {
 		if (searchParams.get('error')) {
 			setLoginError(searchParams.get('error'))
 		}
-	}, [])
+	}, [searchParams])
 
   return (
 		<>
