@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import React from 'react'
 
 export const metadata: Metadata = {
-	title: 'Complete Authentication',
+	title: 'Note App',
 }
 
 const page = () => {
